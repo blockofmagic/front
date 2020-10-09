@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//#region > Imports
+//> React
+// Contains all the functionality necessary to define React components
+import React from "react";
 
-function App() {
+//> Components
+import { Footer, Navbar } from "./components/molecules";
+// Starts the page on top when reloaded or redirected
+import { ScrollToTop } from "./components/atoms";
+
+import logo from "./logo.svg";
+import "./App.css";
+//> Routes
+import Routes from "./Routes";
+//#endregion
+
+//#region > Components
+/**
+ * @class Root component which loads all other components
+ */
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ScrollToTop>
+        <div className="flyout">
+          <Navbar />
+          <main>
+            <Routes />
+          </main>
+          <Footer />
+        </div>
+      </ScrollToTop>
+    </>
   );
-}
+};
+//#endregion
 
+//#region > Exports
 export default App;
+//#endregion
+
+/**
+ * SPDX-License-Identifier: (EUPL-1.2)
+ * Copyright © 2020 Nico Schett
+ */
