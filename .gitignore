@@ -7,6 +7,9 @@ package-lock.json
 # Testing
 /coverage
 
+# Typescript
+yarn.lock
+
 # MAC
 .DS_Store
 
