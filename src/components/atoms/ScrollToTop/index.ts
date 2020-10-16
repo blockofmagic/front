@@ -35,7 +35,7 @@ class ScrollToTop extends React.Component<Props> {
 //#endregion
 
 //#region > Exports
-//> Default Component
+
 // Got access to the history object’s properties and the closest
 // <Route>'s match.
 export default withRouter(ScrollToTop);

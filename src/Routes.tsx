@@ -23,7 +23,7 @@ class Routes extends React.Component {
 //#endregion
 
 //#region > Exports
-//> Default Component
+
 export default Routes;
 //#endregion
 
