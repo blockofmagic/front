@@ -7,8 +7,7 @@ import React from "react";
 import { Footer, Navbar } from "./components/molecules";
 // Starts the page on top when reloaded or redirected
 import { ScrollToTop } from "./components/atoms";
-
-import logo from "./logo.svg";
+//> Stylesheet
 import "./App.css";
 //> Routes
 import Routes from "./Routes";

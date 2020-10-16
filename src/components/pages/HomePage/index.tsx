@@ -2,8 +2,6 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-// DOM bindings for React Router
-import { Redirect } from "react-router-dom";
 //#endregion
 
 //#region > Components
