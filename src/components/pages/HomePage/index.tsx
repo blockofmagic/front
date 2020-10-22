@@ -27,15 +27,15 @@ class HomePage extends React.Component<Props> {
 
     return (
       <div id="home" className="pt-5">
-        <Grid>
-          <Row>
-            <Col md={4}>
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
               <UserActionCard
                 activeIndex={activeActionCard ? activeActionCard : 0}
               />
-            </Col>
-          </Row>
-        </Grid>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

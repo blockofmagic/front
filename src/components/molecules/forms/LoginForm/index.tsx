@@ -61,6 +61,7 @@ class LoginForm extends React.Component<Props> {
         errors,
       });
     } else {
+      /*
       // Proceed to login
       const result = await this.props.login({
         username: this.state.login_username,
@@ -75,6 +76,7 @@ class LoginForm extends React.Component<Props> {
           errorMsg: result.payload.message,
         });
       }
+      */
     }
   };
 
