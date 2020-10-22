@@ -2,9 +2,10 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-//> MDB
-// "Material Design for Bootstrap" is a great UI design framework
-import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+//> Images
+import Logo from "../../../assets/navigation/Logo.png";
 //#endregion
 
 //#region > Components
@@ -15,7 +16,52 @@ import { Button } from "react-bootstrap";
  */
 class Navbar extends React.Component {
   render() {
-    return <Button>TEST</Button>;
+    return (
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">
+            <img
+              src={Logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="Logo"
+            />{" "}
+            BlockOfMagic
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/transactions">
+                  Transactions
+                </a>
+              </li>
+            </ul>
+            <a href="/profile">
+              <img
+                src="https://avatars1.githubusercontent.com/u/55298934?s=460&u=37517fbfe6f4bc3aa2b1f92fa58a348bd977abbe&v=4"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="Logo"
+              />{" "}
+            </a>
+          </div>
+        </nav>
+      </div>
+    );
   }
 }
 //#endregion
