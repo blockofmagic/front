@@ -2,9 +2,11 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
+// DOM bindings for React Router
+import { withRouter } from "react-router-dom";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import { Button } from "react-bootstrap";
+import { MDBNavbar } from "mdbreact";
 //#endregion
 
 //#region > Components
@@ -15,7 +17,7 @@ import { Button } from "react-bootstrap";
  */
 class Navbar extends React.Component {
   render() {
-    return <Button>TEST</Button>;
+    return <MDBNavbar>TEST</MDBNavbar>;
   }
 }
 //#endregion
@@ -29,7 +31,7 @@ class Navbar extends React.Component {
  * Got access to the history object’s properties and the closest
  * <Route>'s match.
  */
-export default Navbar;
+export default withRouter(Navbar);
 //#endregion
 
 /**
