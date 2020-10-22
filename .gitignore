@@ -1,31 +1,37 @@
-#> Environment Section
-# Docker environment
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+package-lock.json
+
+# Testing
+/coverage
+
+# Typescript
+yarn.lock
+
+# MAC
+.DS_Store
+
+# Production
+/build
+
+# Keys
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Django environments
-linux-venv/
-windows-env/
+# MDB
+mdb*
 
-# Pycache
-__pycache__/
-*.pyc
+# All editor configs but vscode
+.editorconfig
+.idea
 
-# SQLite
-*.sqlite3
-
-#> Media Section
-# Audios
-*.ogg
-*.mp3
-
-# Images
-*.jpg
-*.png
-*.gif
-*.svg
-
-# Fonts
-*.ttf
+# Logs
+*.log*
 
 # SPDX-License-Identifier: (EUPL-1.2)
-# Copyright © 2019-2020 Simon Prast
+# Copyright © Nico Schett
