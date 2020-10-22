@@ -2,18 +2,16 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-// DOM bindings for React Router
-import { withRouter } from "react-router-dom";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import { MDBFooter } from "mdbreact";
+import { Button } from "react-bootstrap";
 //#endregion
 
 //#region > Components
 /** @class The footer component for all pages */
 class Footer extends React.PureComponent {
   render() {
-    return <MDBFooter>FOOTER</MDBFooter>;
+    return <Button>FOOTER</Button>;
   }
 }
 //#endregion
@@ -24,7 +22,7 @@ class Footer extends React.PureComponent {
  * Got access to the history object’s properties and the closest
  * <Route>'s match.
  */
-export default withRouter(Footer);
+export default Footer;
 //#endregion
 
 /**
