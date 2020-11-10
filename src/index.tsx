@@ -6,6 +6,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 // DOM bindings for React Router
 import { BrowserRouter as Router } from "react-router-dom";
+//> Font Awesome
+// Font Awesome is an awesome icon library
+import "@fortawesome/fontawesome-free/css/all.min.css";
+//> Bootstrap
+import "bootstrap-css-only/css/bootstrap.min.css";
+//> MDB
+// "Material Design for Bootstrap" is a great UI design framework
+import "mdbreact/dist/css/mdb.css";
 
 //> Style sheet
 // Root SCSS file
