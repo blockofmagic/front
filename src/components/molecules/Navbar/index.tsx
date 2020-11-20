@@ -2,10 +2,29 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-import { Link } from "react-router-dom";
+// DOM bindings for React Router
+import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+//> MDB
+// "Material Design for Bootstrap" is a great UI design framework
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBContainer,
+  MDBSmoothScroll,
+  MDBBtn,
+} from "mdbreact";
 
+//> Style sheet
+import "./navbar.scss";
 //> Images
 import Logo from "../../../assets/navigation/Logo.png";
+//#endregion
+
+//#region > Interfaces
+interface Props extends RouteComponentProps {}
 //#endregion
 
 //#region > Components
@@ -14,53 +33,64 @@ import Logo from "../../../assets/navigation/Logo.png";
  *        depending on whether you are logged in or not and a search field,
  *        to find other users.
  */
-class Navbar extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">
-            <img
-              src={Logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="Logo"
-            />{" "}
-            BlockOfMagic
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+class Navbar extends React.Component<Props> {
+  state = { isOpen: false };
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="/transactions">
-                  Transactions
-                </a>
-              </li>
-            </ul>
-            <a href="/profile">
-              <img
-                src="https://avatars1.githubusercontent.com/u/55298934?s=460&u=37517fbfe6f4bc3aa2b1f92fa58a348bd977abbe&v=4"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="Logo"
-              />{" "}
-            </a>
-          </div>
-        </nav>
-      </div>
+  toggleCollapse = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  render() {
+    const { history } = this.props;
+    const { location } = history;
+
+    return (
+      <MDBNavbar color="light" light expand="md">
+        <MDBContainer>
+          {location.pathname === "/" ? (
+            <MDBSmoothScroll to="home" className="d-inline">
+              <MDBNavbarBrand className="flex-center">
+                <img
+                  src={Logo}
+                  alt="BlockOfMagic Logo"
+                  className="img-fluid mr-2"
+                  width="40px"
+                />
+                <span className="font-weight-bold">BlockOfMagic</span>
+              </MDBNavbarBrand>
+            </MDBSmoothScroll>
+          ) : (
+            <Link to="/">
+              <MDBNavbarBrand className="flex-center">
+                <img
+                  src={Logo}
+                  alt="BlockOfMagic Logo"
+                  className="img-fluid mr-2"
+                  width="40px"
+                />
+                <span className="font-weight-bold">BlockOfMagic</span>
+              </MDBNavbarBrand>
+            </Link>
+          )}
+          <MDBNavbarToggler onClick={this.toggleCollapse} />
+          <MDBCollapse id="navbarCollapse" isOpen={this.state.isOpen} navbar>
+            <MDBNavbarNav right>
+              <Link
+                to={{
+                  pathname: "/",
+                  state: {
+                    actionCard: 1,
+                  },
+                }}
+              >
+                <MDBBtn color="green" outline size="sm">
+                  Sign In
+                </MDBBtn>
+              </Link>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
     );
   }
 }
@@ -75,7 +105,7 @@ class Navbar extends React.Component {
  * Got access to the history object’s properties and the closest
  * <Route>'s match.
  */
-export default Navbar;
+export default withRouter(Navbar);
 //#endregion
 
 /**
