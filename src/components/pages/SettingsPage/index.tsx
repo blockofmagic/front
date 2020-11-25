@@ -2,7 +2,9 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-import { Form, FormGroup, FormControl, Button } from "react-bootstrap";
+//> MDB
+// "Material Design for Bootstrap" is a great UI design framework
+import { MDBCol, MDBInput, MDBRow } from "mdbreact";
 //#endregion
 
 //#region > Components
@@ -48,23 +50,39 @@ class SettingsPage extends React.Component {
               width="175rem"
             />
             <p />
-            <Form className="text-left">
-              <FormGroup controlId="formGroupUsername">
-                <label>Username</label>
-                <FormControl type="text" placeholder="Enter username" />
-              </FormGroup>
-              <FormGroup controlId="formGroupEmail">
-                <label>Email address</label>
-                <FormControl type="email" placeholder="Enter email" />
-              </FormGroup>
-              <FormGroup controlId="formGroupPassword">
-                <label>Password</label>
-                <FormControl type="password" placeholder="Password" />
-              </FormGroup>
-              <Button type="submit" className="btn-success btn-lg btn-block">
-                Save Settings
-              </Button>
-            </Form>
+            <div className="personal-data">
+              <p className="font-weight-bold">Your full name</p>
+              <MDBRow>
+                <MDBCol md="6">
+                  <input
+                    type="text"
+                    name="firstName"
+                    className="form-control"
+                    placeholder="Firstname"
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <input
+                    type="text"
+                    name="lastName"
+                    className="form-control"
+                    placeholder="Lastname"
+                  />
+                </MDBCol>
+              </MDBRow>
+              <p className="font-weight-bold">Public email</p>
+              <MDBRow>
+                <MDBCol md="12">
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Email"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+            </div>
           </div>
         </div>
       </div>
