@@ -4,13 +4,17 @@
 import React from "react";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import { Form, FormGroup, FormControl, Button, Alert } from "react-bootstrap";
-import { ArrowLeft } from "react-bootstrap-icons";
+import { MDBAlert, MDBBtn, MDBIcon } from "mdbreact";
 //#endregion
 
 //#region > Interfaces
 interface Props {
   goTo: any;
+  // login: any;
+}
+
+interface Error {
+  code: any;
 }
 //#endregion
 
@@ -26,6 +30,43 @@ class LoginForm extends React.Component<Props> {
     login_password: "",
     errorMsg: "",
     loginFail: false,
+    errors: [],
+  };
+
+  testForError = (id: any) => {
+    if (this.state.errors) {
+      let rtn = this.state.errors.map((error: Error, i) => {
+        if (!Array.isArray(id)) {
+          if (error.code === id) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          let innerRtn = id.map((item, ikey) => {
+            if (error.code === item) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+
+          if (innerRtn.includes(true)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+
+      if (rtn.includes(true)) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   };
 
   handleChangeManual = (name: any, value: any, id: any) => {
@@ -87,40 +128,50 @@ class LoginForm extends React.Component<Props> {
       <>
         <div className="text-left">
           <small className="text-muted clickable" onClick={() => goTo(0)}>
-            <ArrowLeft />
+            <MDBIcon icon="angle-left" className="mr-1" />
             Back
           </small>
         </div>
+        <p className="lead">Login to SNEK</p>
         {this.state.loginFail && (
-          <Alert className="alert-danger">{this.state.errorMsg}</Alert>
+          <MDBAlert color="danger" className="mt-3 mb-3">
+            {this.state.errorMsg}
+          </MDBAlert>
         )}
-        <Form className="text-left">
-          <FormGroup controlId="formGroupUsername">
-            <label>Username</label>
-            <FormControl
-              type="text"
-              placeholder="Enter username"
-              onChange={(e: any) =>
-                this.handleChangeManual("login_username", e.target.value, 20)
-              }
-              value={this.state.login_username}
-            />
-          </FormGroup>
-          <FormGroup controlId="formGroupPassword">
-            <label>Password</label>
-            <FormControl
-              type="password"
-              placeholder="Password"
-              onChange={(e: any) =>
-                this.handleChangeManual("login_password", e.target.value, 21)
-              }
-              value={this.state.login_password}
-            />
-          </FormGroup>
-          <Button type="submit" className="btn-success btn-block">
+        <form onSubmit={this.login}>
+          <input
+            type="text"
+            className={
+              this.testForError(20)
+                ? "form-control my-2 error"
+                : "form-control my-2"
+            }
+            placeholder="Username"
+            name="username"
+            onChange={(e) =>
+              this.handleChangeManual("login_username", e.target.value, 20)
+            }
+            value={this.state.login_username}
+          />
+          <input
+            type="password"
+            className={
+              this.testForError(21)
+                ? "form-control my-2 error"
+                : "form-control my-2"
+            }
+            placeholder="Password"
+            name="password"
+            onChange={(e) =>
+              this.handleChangeManual("login_password", e.target.value, 21)
+            }
+            value={this.state.login_password}
+          />
+          <MDBBtn color="green" className="mb-0" type="submit">
             Login
-          </Button>
-        </Form>
+            <MDBIcon icon="angle-right" className="pl-1" />
+          </MDBBtn>
+        </form>
       </>
     );
   }
