@@ -6,7 +6,7 @@ import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import { Button } from "react-bootstrap";
+import { MDBBtn } from "mdbreact";
 //> Components
 import { LoginForm, RegisterForm } from "../forms";
 //#endregion
@@ -19,7 +19,7 @@ interface Props {
 
 //#region > Components
 /**
- * @class The navbar for all pages. Contains a login button, a profile menu
+ * @class The navbar for all pages. Contains a login MDBBtn, a profile menu
  *        depending on whether you are logged in or not and a search field,
  *        to find other users.
  */
@@ -47,12 +47,12 @@ class UserActionCard extends React.Component<Props> {
       <div className="text-center" id="useractionscard">
         {activeItem === 0 && (
           <>
-            <Button
+            <MDBBtn
               className="btn-success btn-block"
               onClick={() => this.setActiveItem(1)}
             >
               Login to BlockOfMagic
-            </Button>
+            </MDBBtn>
             <div className="w-100">
               <div className="splitter mt-3 mb-2">
                 <span className="or">
@@ -60,12 +60,12 @@ class UserActionCard extends React.Component<Props> {
                 </span>
               </div>
             </div>
-            <Button
+            <MDBBtn
               className="btn-info btn-block"
               onClick={() => this.setActiveItem(2)}
             >
               Sign up to BlockOfMagic
-            </Button>
+            </MDBBtn>
           </>
         )}
         {activeItem === 1 && <LoginForm goTo={this.goTo} {...this.props} />}
