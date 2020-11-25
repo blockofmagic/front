@@ -2,7 +2,6 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
 //> Components
 import { UserActionCard } from "../../molecules";
 //#endregion
