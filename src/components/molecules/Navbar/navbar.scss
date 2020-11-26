@@ -4,6 +4,7 @@
 .navbar {
   box-shadow: none;
   background: #f0f0f0;
+  margin-bottom: 3rem;
 
   .btn-white {
     background: transparentize($color: white, $amount: 0.3) !important;
