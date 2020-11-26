@@ -5,12 +5,20 @@ import React from "react";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
 import { MDBAlert, MDBBtn, MDBIcon } from "mdbreact";
+//> Redux
+// Allows to React components read data from a Redux store, and dispatch actions
+// to the store to update data.
+import { connect } from "react-redux";
+
+//> Actions
+// Functions to send data from the application to the store
+import { loginAction } from "../../../../store/actions/userActions";
 //#endregion
 
 //#region > Interfaces
 interface Props {
   goTo: any;
-  // login: any;
+  login: any;
 }
 
 interface Error {
@@ -102,13 +110,13 @@ class LoginForm extends React.Component<Props> {
         errors,
       });
     } else {
-      /*
       // Proceed to login
       const result = await this.props.login({
         username: this.state.login_username,
         password: this.state.login_password, // Hash password
       });
 
+      console.log(result);
       //#TSID6
       //console.log("LOGIN FORM PROCEED TO LOGIN", result);
       if (result?.payload.error) {
@@ -117,7 +125,6 @@ class LoginForm extends React.Component<Props> {
           errorMsg: result.payload.message,
         });
       }
-      */
     }
   };
 
@@ -132,7 +139,7 @@ class LoginForm extends React.Component<Props> {
             Back
           </small>
         </div>
-        <p className="lead">Login to SNEK</p>
+        <p className="lead">Login to BlockOfMagic</p>
         {this.state.loginFail && (
           <MDBAlert color="danger" className="mt-3 mb-3">
             {this.state.errorMsg}
@@ -167,15 +174,23 @@ class LoginForm extends React.Component<Props> {
             }
             value={this.state.login_password}
           />
-          <MDBBtn color="green" className="mb-0" type="submit">
+          <p />
+          <MDBBtn className="btn-block" type="submit">
             Login
-            <MDBIcon icon="angle-right" className="pl-1" />
           </MDBBtn>
         </form>
       </>
     );
   }
 }
+//#endregion
+
+//#region > Redux Mapping
+const mapStateToProps = (state: any) => ({});
+
+const mapDispatchToProps = (dispatch: any) => {
+  return { login: (user: any) => dispatch(loginAction(user)) };
+};
 //#endregion
 
 //#region > Exports
@@ -187,7 +202,7 @@ class LoginForm extends React.Component<Props> {
  * Got access to the history object’s properties and the closest
  * <Route>'s match.
  */
-export default LoginForm;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 //#endregion
 
 /**
