@@ -4,7 +4,7 @@
 import React from "react";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import { MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBRow, MDBCol, MDBBtn, MDBIcon, MDBAlert } from "mdbreact";
 //> Redux
 // Allows to React components read data from a Redux store, and dispatch actions
 // to the store to update data.
@@ -249,6 +249,13 @@ class RegisterForm extends React.Component<Props> {
               Back
             </small>
           </div>
+          {this.state.errors.length !== 0 && (
+            <MDBAlert color="danger" className="mt-3 mb-3">
+              {this.state.errors.map((error: any) => {
+                return <p>{error.msg}</p>;
+              })}
+            </MDBAlert>
+          )}
           <form className="text-left">
             <span className="text-muted small">Username</span>
             <input
