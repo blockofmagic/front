@@ -1,0 +1,169 @@
+#home {
+  .text-center {
+  }
+
+  // Headline
+
+  .headline {
+    font-weight: bold;
+    font-size: 6vw;
+  }
+
+  // Subheadline
+
+  .subheadline {
+    font-size: 3vw;
+  }
+
+  // Button Left Middle Right
+
+  #row1 {
+    padding: 20px 20px 5px 20px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .btn-container {
+    text-align: center;
+  }
+
+  .button-left {
+    display: inline-block;
+    max-width: 100%;
+    padding: 16px 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size: 100%;
+    color: #fff;
+    border-radius: 1px;
+
+    width: 290px;
+    height: 55px;
+
+    padding: 15px 25px;
+    color: #231e3f !important;
+    background: #fff !important;
+    border: 1px solid #231e3f !important;
+  }
+
+  .button-left:hover {
+    color: #ffffff !important;
+    background-color: #1c172f !important;
+    border: 2px solid #1c172f !important;
+  }
+
+  .button-right {
+    display: inline-block;
+    max-width: 100%;
+    padding: 16px 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size: 100%;
+    color: #fff;
+    border-radius: 1px;
+
+    width: 290px;
+    height: 55px;
+
+    padding: 15px 25px;
+    color: #231e3f !important;
+    background: #fff !important;
+    border: 1px solid #231e3f !important;
+  }
+
+  .button-right:hover {
+    color: #ffffff !important;
+    background-color: #1c172f !important;
+    border: 2px solid #1c172f !important;
+  }
+
+  .button-centre {
+    display: inline-block;
+    max-width: 100%;
+    padding: 16px 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size: 100%;
+    color: #fff !important;
+    border-radius: 1px;
+
+    width: 290px;
+    height: 55px;
+
+    padding: 15px 25px;
+    color: #231e3f !important;
+    background: #fff !important;
+    border: 1px solid #231e3f !important;
+  }
+
+  .button-centre:hover {
+    color: #ffffff !important;
+    background-color: #1c172f !important;
+    border: 2px solid #1c172f !important;
+  }
+
+  // What is BlockOfMagic
+
+  .nav-background-color {
+    background: #342543 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  // Navbar
+
+  .div-background-color {
+    background: #342543 !important;
+  }
+
+  .nav-link {
+    border-radius: 10em;
+    color: #ffffff;
+  }
+
+  .nav-link:hover {
+    border-radius: 10em;
+    color: #ffffff;
+    border-color: #342543 !important;
+    background-color: #1c172f !important;
+  }
+
+  .nav-link > .active {
+    background-color: #1c172f !important;
+    border-color: #ffffff !important;
+    color: #ffffff;
+  }
+
+  //
+
+  .teammember-headline {
+    padding-top: 10px;
+  }
+
+  .text-padding {
+    padding-top: 50px;
+  }
+
+  .container-blockss {
+    padding-bottom: 50px;
+  }
+
+  //
+
+  .div-blockss {
+    padding-bottom: 200px;
+  }
+
+  .div-float-1 {
+    float: left;
+    width: 45%;
+  }
+
+  .div-float-2 {
+    float: right;
+    width: 45%;
+  }
+}
