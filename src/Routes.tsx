@@ -20,7 +20,11 @@ class Routes extends React.Component {
           path="/"
           component={(props: any) => <HomePage {...props} />}
         />
-        <Route exact path="/settings" component={() => <SettingsPage />} />
+        <Route
+          exact
+          path="/settings"
+          component={(props: any) => <SettingsPage {...props} />}
+        />
       </Switch>
     );
   }
