@@ -1,18 +1,19 @@
 #home {
-  .text-center {
+  hr {
+    height: 8rem;
   }
 
   // Headline
 
   .headline {
     font-weight: bold;
-    font-size: 6vw;
+    font-size: 5vw;
   }
 
   // Subheadline
 
   .subheadline {
-    font-size: 3vw;
+    font-size: 2vw;
   }
 
   // Button Left Middle Right
@@ -149,21 +150,5 @@
 
   .container-blockss {
     padding-bottom: 50px;
-  }
-
-  //
-
-  .div-blockss {
-    padding-bottom: 200px;
-  }
-
-  .div-float-1 {
-    float: left;
-    width: 45%;
-  }
-
-  .div-float-2 {
-    float: right;
-    width: 45%;
   }
 }
