@@ -6,7 +6,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 //> Components
-import { HomePage } from "./components/pages";
+import { HomePage, SettingsPage } from "./components/pages";
 //#endregion
 
 //#region > Components
@@ -15,7 +15,16 @@ class Routes extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={() => <HomePage />} />
+        <Route
+          exact
+          path="/"
+          component={(props: any) => <HomePage {...props} />}
+        />
+        <Route
+          exact
+          path="/settings"
+          component={(props: any) => <SettingsPage {...props} />}
+        />
       </Switch>
     );
   }

@@ -2,7 +2,6 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
-
 import { Line } from "react-chartjs-2";
 
 import {MDBBtn, MDBContainer, MDBTabPane, MDBTabContent, MDBNavLink, MDBNavItem, MDBNav, MDBBadge} from "mdbreact";
@@ -261,13 +260,23 @@ class HomePage extends React.Component {
 }
 //#endregion
 
+//#region > Redux Mapping
+const mapStateToProps = (state: any) => ({
+  loggedUser: state.user.user,
+});
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {};
+};
+//#endregion
+
 //#region > Exports
 
 /**
  * Provides its connected component with the pieces of the data it needs from
  * the store, and the functions it can use to dispatch actions to the store.
  */
-export default HomePage;
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 //#endregion
 
 /**
