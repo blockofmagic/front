@@ -40,7 +40,6 @@ import App from "./App";
 import rootReducer from "./store/reducers";
 //> Service Worker
 import * as serviceWorker from "./serviceWorker";
-import { loadingBarReducer } from "react-redux-loading-bar";
 //#endregion
 
 //#region > Redux Store Initialization
