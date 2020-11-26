@@ -1,5 +1,4 @@
 #useractionscard {
-
   // Register selection
   svg {
     padding-top: 0.5rem;
@@ -7,6 +6,17 @@
     height: auto;
     transition: all 0.2s ease;
     filter: saturate(0.5);
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #342543 !important;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
   }
 
   .selectType {
@@ -27,7 +37,7 @@
       }
 
       & > p.lead {
-        color: #77bd43;
+        color: #342543;
         font-weight: bold;
       }
     }
@@ -40,9 +50,9 @@
 
     &:focus {
       color: #495057;
-      border-color: #77bd43;
+      border-color: #342543;
       outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(119, 189, 67, 0.25);
+      box-shadow: 0 0 0 0.2rem rgba(52, 37, 67, 0.25);
     }
 
     &.error {
@@ -72,7 +82,7 @@
             content: "\f055";
             font-weight: 900;
             font-size: 10px;
-            color: #77bd43;
+            color: #342543;
             right: 5px;
             bottom: 5px;
           }
@@ -90,7 +100,7 @@
       &:hover {
         i {
           &::after {
-            color: lighten(#77bd43, 15%);
+            color: lighten(#342543, 15%);
             transform: scale(1.5);
           }
         }
@@ -107,7 +117,7 @@
     .select-wrapper {
       &:focus {
         color: #495057;
-        border-color: #77bd43;
+        border-color: #342543;
         outline: 0;
         box-shadow: 0 0 0 0.2rem rgba(119, 189, 67, 0.25);
       }
@@ -181,7 +191,7 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color: #77bd43;
+        color: #342543;
       }
     }
 

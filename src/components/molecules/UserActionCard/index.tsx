@@ -9,6 +9,8 @@ import { RouteComponentProps } from "react-router-dom";
 import { MDBBtn } from "mdbreact";
 //> Components
 import { LoginForm, RegisterForm } from "../forms";
+//> Stylesheet
+import "./useractioncard.scss";
 //#endregion
 
 //#region > Interfaces
@@ -47,10 +49,7 @@ class UserActionCard extends React.Component<Props> {
       <div className="text-center" id="useractionscard">
         {activeItem === 0 && (
           <>
-            <MDBBtn
-              className="btn-success btn-block"
-              onClick={() => this.setActiveItem(1)}
-            >
+            <MDBBtn className="btn-block" onClick={() => this.setActiveItem(1)}>
               Login to BlockOfMagic
             </MDBBtn>
             <div className="w-100">
@@ -60,10 +59,7 @@ class UserActionCard extends React.Component<Props> {
                 </span>
               </div>
             </div>
-            <MDBBtn
-              className="btn-info btn-block"
-              onClick={() => this.setActiveItem(2)}
-            >
+            <MDBBtn className="btn-block" onClick={() => this.setActiveItem(2)}>
               Sign up to BlockOfMagic
             </MDBBtn>
           </>
