@@ -2,6 +2,12 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
+
+import { Line } from "react-chartjs-2";
+
+import {MDBBtn, MDBContainer, MDBTabPane, MDBTabContent, MDBNavLink, MDBNavItem, MDBNav, MDBBadge} from "mdbreact";
+
+import "./homepage.scss";
 //#endregion
 
 //#region > Components
