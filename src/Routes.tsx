@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 
 //> Components
 import { HomePage, SettingsPage } from "./components/pages";
+import DStore from "./ipfs/App";
 //#endregion
 
 //#region > Components
@@ -24,6 +25,11 @@ class Routes extends React.Component {
           exact
           path="/settings"
           component={(props: any) => <SettingsPage {...props} />}
+        />
+        <Route
+          exact
+          path="/dstore"
+          component={(props: any) => <DStore {...props} />}
         />
       </Switch>
     );
