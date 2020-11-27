@@ -94,12 +94,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>
-            {" "}
-            Ethereum and InterPlanetary File System(IPFS) with Create React App
-          </h1>
-        </header>
 
         <hr />
 
