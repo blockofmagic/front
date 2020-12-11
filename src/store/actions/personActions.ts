@@ -68,7 +68,64 @@ const getProfiles = (personName: any) => {
     }
   };
 };
+
+/**
+ * Get person page for a logged user
+ */
+const updateSettings = (
+  nextSettings = {
+    avatarImage: undefined,
+    bio: undefined,
+    display2dCalendar: undefined,
+    display3dCalendar: undefined,
+    displayEmail: undefined,
+    displayProgrammingLanguages: undefined,
+    displayRanking: undefined,
+    displayWorkplace: undefined,
+    email: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    location: undefined,
+    movablePool: undefined,
+    status: undefined,
+    websiteUrl: undefined,
+    workplace: undefined,
+  }
+) => {
+  return async (dispatch: any, getState: any, {}) => {
+    try {
+      dispatch({ type: Action.PERSON_SETTINGS_UPDATE_REQUEST });
+
+      const state = getState();
+      const personName = extractNameFromPersonSlug(state.user.user.person.slug);
+
+      const person = await INTEL_SNEK.person.updateSettings({
+        personName,
+        settings: {
+          ...nextSettings,
+        },
+      });
+
+      dispatch({
+        type: Action.PERSON_SETTINGS_UPDATE_SUCCESS,
+        payload: person,
+      });
+
+      await dispatch(getUserPerson(personName));
+    } catch (ex) {
+      dispatch({
+        type: Action.PERSON_SETTINGS_UPDATE_FAILURE,
+        payload: {
+          errorCode: 601,
+          message: `Updating settings failed`,
+          error: ex,
+        },
+      });
+    }
+  };
+};
+
 //#endregion
 //#region > Exports
-export { getProfiles, getPerson };
+export { getProfiles, getPerson, updateSettings };
 //#endregion
