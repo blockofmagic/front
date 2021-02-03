@@ -8,6 +8,8 @@ import { Route, Switch } from "react-router-dom";
 //> Components
 import { HomePage, SettingsPage } from "./components/pages";
 import DStore from "./ipfs/App";
+import InfuraDashboard from "infura-explorer";
+
 //#endregion
 
 //#region > Components
@@ -20,6 +22,11 @@ class Routes extends React.Component {
           exact
           path="/"
           component={(props: any) => <HomePage {...props} />}
+        />
+        <Route
+          exact
+          path="/dashboard"
+          component={(props: any) => <InfuraDashboard />}
         />
         <Route
           exact
