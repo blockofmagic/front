@@ -32,7 +32,7 @@ import { logoutAction } from "../../../store/actions/userActions";
 //> Style sheet
 import "./navbar.scss";
 //> Images
-import Logo from "../../../assets/navigation/Logo.png";
+import Logo from "../../../assets/navigation/logo.svg";
 //#endregion
 
 //#region > Interfaces

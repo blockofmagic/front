@@ -1,214 +1,110 @@
-//#region > Imports
-//> React
-// Contains all the functionality necessary to define React components
 import React from "react";
-// DOM bindings for React Router
-import { Link } from "react-router-dom";
-//> MDB
-// "Material Design for Bootstrap" is a great UI design framework
-import {
-  MDBFooter,
-  MDBRow,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBBtn,
-} from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
-//> Style sheet
-import "./footer.scss";
-//> Images
-import Logo from "../../../assets/navigation/Logo.png";
-//#endregion
-
-//#region > Components
-/** @class The footer component for all pages */
-class Footer extends React.PureComponent {
-  render() {
-    return (
-      <MDBFooter color="white text-dark">
-        <MDBRow className="social">
-          <MDBCol md="12" className="text-center">
-            <h4>Connect with us!</h4>
+const FooterPagePro = () => {
+  return (
+    <MDBFooter color="mdb-color" className="font-small pt-4 mt-4">
+      <MDBContainer className="text-center text-md-left">
+        <MDBRow className="text-center text-md-left mt-3 pb-3">
+          <MDBCol md="3" lg="3" xl="3" className="mx-auto mt-3">
+            <h6 className="text-uppercase mb-4 font-weight-bold">BOM</h6>
+            <p>A snek project.</p>
           </MDBCol>
-          <MDBCol md="12" className="text-center">
-            <MDBBtn
-              tag="a"
-              floating
-              social="git"
-              href="https://github.com/snek-at"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MDBIcon fab icon="github fa-lg" />
-            </MDBBtn>
-            <MDBBtn
-              tag="a"
-              floating
-              social="ins"
-              href="https://www.instagram.com/snek_at/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MDBIcon fab icon="instagram" />
-            </MDBBtn>
-            <MDBBtn
-              tag="a"
-              floating
-              social="fb"
-              href="https://www.facebook.com/SNEK-107139834155546/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MDBIcon fab icon="facebook-f fa-lg" />
-            </MDBBtn>
-            <MDBBtn
-              tag="a"
-              floating
-              social="tw"
-              href="https://twitter.com/snek-at"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MDBIcon fab icon="twitter" />
-            </MDBBtn>
-            <MDBBtn
-              tag="a"
-              floating
-              social="yt"
-              href="https://www.youtube.com/channel/UCbzwB5x8XBTjnGZMydUr5LA"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MDBIcon fab icon="youtube" />
-            </MDBBtn>
-            <MDBBtn tag="a" floating social="email" href="mailto:info@snek.at">
-              <MDBIcon far icon="envelope" />
-            </MDBBtn>
+          <hr className="w-100 clearfix d-md-none" />
+          <MDBCol md="2" lg="2" xl="2" className="mx-auto mt-3">
+            <h6 className="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a href="#!">SNEK Community</a>
+            </p>
+            <p>
+              <a href="#!">SNEK Enterprise</a>
+            </p>
+          </MDBCol>
+          <hr className="w-100 clearfix d-md-none" />
+          <MDBCol md="3" lg="2" xl="2" className="mx-auto mt-3">
+            <h6 className="text-uppercase mb-4 font-weight-bold">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+          </MDBCol>
+          <hr className="w-100 clearfix d-md-none" />
+          <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3">
+            <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p>
+              <i className="fa fa-home mr-3" /> New York, NY 10012, US
+            </p>
+            <p>
+              <i className="fa fa-envelope mr-3" /> contact@schett.net
+            </p>
+            <p>
+              <i className="fa fa-phone mr-3" /> + 01 234 567 88
+            </p>
+            <p>
+              <i className="fa fa-print mr-3" /> + 01 234 567 89
+            </p>
           </MDBCol>
         </MDBRow>
-        <MDBContainer className="text-center text-md-left pt-5">
-          <MDBRow>
-            <MDBCol md="2">
-              <img src={Logo} alt="SNEK Logo" className="img-fluid" />
-            </MDBCol>
-            <MDBCol md="3">
-              <h5 className="title">Legal</h5>
-              <hr className="agency-red mb-4 mt-0 d-inline-block" />
-              <ul>
-                <Link to="/about">
-                  <li className="list-unstyled">
-                    <MDBIcon far icon="file-alt" />
-                    About
-                  </li>
-                </Link>
-                <Link to="/privacy">
-                  <li className="list-unstyled">
-                    <MDBIcon icon="balance-scale" />
-                    Privacy
-                  </li>
-                </Link>
-                <Link to="/terms">
-                  <li className="list-unstyled">
-                    <MDBIcon icon="balance-scale" />
-                    Terms of Service
-                  </li>
-                </Link>
-              </ul>
-            </MDBCol>
-            <MDBCol md="3">
-              <h5 className="title">Useful links</h5>
-              <hr className="agency-red mb-4 mt-0 d-inline-block" />
-              <ul>
-                <Link to="/faq">
-                  <li className="list-unstyled">
-                    <MDBIcon icon="question" />
-                    FAQ
-                  </li>
-                </Link>
-                <a
-                  href="https://github.com/snek-at/front/blob/master/CONTRIBUTING.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <li className="list-unstyled">
-                    <MDBIcon icon="code" />
-                    Code quality
-                  </li>
-                </a>
-                <a
-                  href="https://www.buymeacoffee.com/M4SVRWQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <li className="list-unstyled">
-                    <MDBIcon icon="coffee" />
-                    Get us a coffee
-                  </li>
-                </a>
-                <Link to="/branding">
-                  <li className="list-unstyled">
-                    <MDBIcon icon="palette" />
-                    Press / Branding
-                  </li>
-                </Link>
-              </ul>
-            </MDBCol>
-            <MDBCol md="4">
-              <h5 className="title">Contact</h5>
-              <hr className="agency-red mb-4 mt-0 d-inline-block" />
-              <ul>
-                <li className="list-unstyled">
-                  <MDBIcon icon="home" />
-                  Klausen 10, 9911 Assling
-                </li>
-                <a href="mailto:info@snek.at">
-                  <li className="list-unstyled">
-                    <MDBIcon far icon="envelope" />
-                    info@snek.at
-                  </li>
-                </a>
-              </ul>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-        <div className="footer-copyright text-center py-3">
-          <MDBContainer fluid>
-            Copyright &copy; {new Date().getFullYear()} Schett Nico
-            <br />
-            <small className="text-muted">
-              v{process.env.REACT_APP_VERSION}
-            </small>
-            <p className="mb-2 mt-1 font-weight-bold madeby">
-              Made with{" "}
-              <MDBIcon icon="heart" className="pulse" aria-hidden="true" /> by{" "}
-              <a
-                href="https://www.snek.at"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                us
-              </a>
-              .
+        <hr />
+        <MDBRow className="d-flex align-items-center">
+          <MDBCol md="8" lg="8">
+            <p className="text-center text-md-left grey-text">
+              &copy; {new Date().getFullYear()} Copyright:{" "}
+              <a href="https://www.MDBootstrap.com"> schett.net </a>
             </p>
-          </MDBContainer>
-        </div>
-      </MDBFooter>
-    );
-  }
-}
-//#endregion
+          </MDBCol>
+          <MDBCol md="4" lg="4" className="ml-lg-0">
+            <div className="text-center text-md-right">
+              <ul className="list-unstyled list-inline">
+                <li className="list-inline-item">
+                  <a
+                    className="btn-floating btn-sm rgba-white-slight mx-1"
+                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                  >
+                    <i className="fab fa-facebook-f" />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a
+                    className="btn-floating btn-sm rgba-white-slight mx-1"
+                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                  >
+                    <i className="fab fa-twitter" />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a
+                    className="btn-floating btn-sm rgba-white-slight mx-1"
+                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                  >
+                    <i className="fab fa-google-plus" />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a
+                    className="btn-floating btn-sm rgba-white-slight mx-1"
+                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                  >
+                    <i className="fab fa-linkedin-in" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </MDBFooter>
+  );
+};
 
-//#region > Exports
-
-/**
- * Got access to the history object’s properties and the closest
- * <Route>'s match.
- */
-export default Footer;
-//#endregion
-
-/**
- * SPDX-License-Identifier: (EUPL-1.2)
- * Copyright © 2019-2020 Nico Schett
- */
+export default FooterPagePro;
