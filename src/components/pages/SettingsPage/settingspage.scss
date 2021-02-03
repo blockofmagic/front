@@ -83,12 +83,23 @@
     width: 150px;
     background: white;
   }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #342543 !important;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
 }
 
 #notification {
   background-color: rgba($color: #342543, $alpha: 0.5);
   color: black;
-
+  margin-top: -3.2%;
   .message {
     padding-top: 1.5%;
     padding-bottom: 1.5%;

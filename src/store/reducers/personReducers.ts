@@ -18,6 +18,20 @@ const INIT_STATE = {
 //#region > Reducers
 const personReducer = (state = INIT_STATE, action: any) => {
   switch (action.type) {
+    //> All person types
+    // Currently no splitted cases are used because there is no need for
+    case Action.PERSON_SETTINGS_UPDATE_REQUEST:
+      return state;
+    case Action.PERSON_SETTINGS_UPDATE_SUCCESS:
+      return {
+        ...state,
+      };
+    case Action.PERSON_SETTINGS_UPDATE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        errorDetails: serializeError(action.payload.error),
+      };
     //> Get person
     case Action.PERSON_FETCH_REQUEST:
       return state;

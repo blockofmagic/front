@@ -35,14 +35,31 @@ import {
 import { connect } from "react-redux";
 //> Actions
 // Functions to send data from the application to the store
+import { updateSettings } from "../../../store/actions/personActions";
 import { getPerson as getUserPerson } from "../../../store/actions/userActions";
 //> Stylesheet
 import "./settingspage.scss";
 //#endregion
 
+//#region > Interfaces
 interface Props {
   loggedUser: any;
+  saveSettings: any;
 }
+interface State {
+  loading: boolean;
+  firstName: string;
+  lastName: string;
+  email: string;
+  showProfilePicture: boolean;
+  showNotification: boolean;
+  showSaveButton: boolean;
+  avatarFile?: File;
+  activeItem: number;
+  status: number;
+  tabItems: { name: string; icon: string }[];
+}
+//#endregion
 
 //#region > Components
 /**
@@ -51,25 +68,82 @@ interface Props {
  *        to find other users.
  */
 class SettingsPage extends React.Component<Props> {
-  state = {
+  state: State = {
     loading: true,
-    person: null,
+    firstName: "",
+    lastName: "",
+    email: "",
     showProfilePicture: false,
     showNotification: false,
     showSaveButton: false,
     avatarFile: undefined,
     activeItem: 0,
+    status: 0,
     tabItems: [
       { name: "Profile", icon: "" },
       { name: "Account", icon: "" },
     ],
   };
 
+  setFirstName = (event: any) => {
+    this.setState({ firstName: event.currentTarget.value });
+  };
+
+  setLastName = (event: any) => {
+    this.setState({ lastName: event.currentTarget.value });
+  };
+
+  setMail = (event: any) => {
+    this.setState({ email: event.currentTarget.value });
+  };
+
+  onSubmit = async () => {
+    let nextSettings = {
+      avatarImage: undefined,
+      bio: undefined,
+      display2dCalendar: undefined,
+      display3dCalendar: undefined,
+      displayEmail: undefined,
+      displayProgrammingLanguages: undefined,
+      displayRanking: undefined,
+      displayWorkplace: undefined,
+      email: this.state.email,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      location: undefined,
+      movablePool: undefined,
+      status: undefined,
+      websiteUrl: undefined,
+      workplace: undefined,
+    };
+    const result = await this.props.saveSettings(nextSettings);
+
+    if (result?.payload.error) {
+      this.setState({
+        updateFail: true,
+        errorMsg: result.payload.message,
+      });
+    } else {
+      this.setState({ showNotification: true });
+    }
+  };
+
   render() {
+    const { activeItem, firstName, lastName, email, status } = this.state;
     const { loggedUser } = this.props;
-    const { activeItem } = this.state;
 
     if (loggedUser.person) {
+      if (status === 0) {
+        const { firstName, lastName, email } = this.props.loggedUser.person;
+
+        this.setState({
+          firstName,
+          lastName,
+          email,
+          status: 1,
+        });
+      }
+
       return (
         <>
           {this.state.showNotification && (
@@ -137,8 +211,9 @@ class SettingsPage extends React.Component<Props> {
                             type="text"
                             name="firstName"
                             className="form-control"
-                            value={loggedUser.person.firstName}
-                            placeholder="Firstname"
+                            onChange={this.setFirstName}
+                            value={firstName}
+                            placeholder="First name"
                           />
                         </MDBCol>
                         <MDBCol md="6">
@@ -147,8 +222,9 @@ class SettingsPage extends React.Component<Props> {
                             type="text"
                             name="lastName"
                             className="form-control"
-                            value={loggedUser.person.lastName}
-                            placeholder="Lastname"
+                            onChange={this.setLastName}
+                            value={lastName}
+                            placeholder="Last name"
                           />
                         </MDBCol>
                       </MDBRow>
@@ -159,10 +235,23 @@ class SettingsPage extends React.Component<Props> {
                             type="email"
                             name="email"
                             className="form-control"
-                            value={loggedUser.person.email}
+                            onChange={this.setMail}
+                            value={email}
                             placeholder="Email"
                             required
                           />
+                        </MDBCol>
+                      </MDBRow>
+                      <br />
+                      <MDBRow>
+                        <MDBCol>
+                          <MDBBtn
+                            className="btn-block"
+                            type="submit"
+                            onClick={this.onSubmit}
+                          >
+                            Save
+                          </MDBBtn>
                         </MDBCol>
                       </MDBRow>
                     </div>
@@ -183,6 +272,18 @@ class SettingsPage extends React.Component<Props> {
                           />
                         </MDBCol>
                       </MDBRow>
+                      <br />
+                      <MDBRow>
+                        <MDBCol>
+                          <MDBBtn
+                            className="btn-block"
+                            type="submit"
+                            onClick={this.onSubmit}
+                          >
+                            Save
+                          </MDBBtn>
+                        </MDBCol>
+                      </MDBRow>
                     </div>
                   </MDBTabPane>
                 </MDBTabContent>
@@ -190,81 +291,6 @@ class SettingsPage extends React.Component<Props> {
             </MDBRow>
           </MDBContainer>
         </>
-      );
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-4">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <a className="nav-link active" href="/settings">
-                    Profile
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/settings">
-                    Contacts
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/settings">
-                    Wallet
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/settings">
-                    Security
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-8">
-              <h3>Settings</h3>
-              <img
-                src="https://avatars1.githubusercontent.com/u/55298934?s=460&u=37517fbfe6f4bc3aa2b1f92fa58a348bd977abbe&v=4"
-                className="img-fluid"
-                width="175rem"
-              />
-              <p />
-              <div className="personal-data">
-                <p className="font-weight-bold">Your full name</p>
-                <MDBRow>
-                  <MDBCol md="6">
-                    <input
-                      type="text"
-                      name="firstName"
-                      className="form-control"
-                      value={loggedUser.person.firstName}
-                      placeholder="Firstname"
-                    />
-                  </MDBCol>
-                  <MDBCol md="6">
-                    <input
-                      type="text"
-                      name="lastName"
-                      className="form-control"
-                      value={loggedUser.person.lastName}
-                      placeholder="Lastname"
-                    />
-                  </MDBCol>
-                </MDBRow>
-                <p className="font-weight-bold">Public email</p>
-                <MDBRow>
-                  <MDBCol md="12">
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control"
-                      value={loggedUser.person.email}
-                      placeholder="Email"
-                      required
-                    />
-                  </MDBCol>
-                </MDBRow>
-              </div>
-            </div>
-          </div>
-        </div>
       );
     } else {
       return (
@@ -287,6 +313,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
+    saveSettings: (nextSettings: any) => dispatch(updateSettings(nextSettings)),
     getUserPerson: (user: any) => dispatch(getUserPerson(user)),
   };
 };
