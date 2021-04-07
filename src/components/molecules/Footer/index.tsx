@@ -64,12 +64,12 @@ const FooterPagePro = () => {
             </p>
           </MDBCol>
           <MDBCol md="4" lg="4" className="ml-lg-0">
-            <div className="text-center text-md-right">
+          <div className="text-center text-md-right">
               <ul className="list-unstyled list-inline">
                 <li className="list-inline-item">
                   <a
                     className="btn-floating btn-sm rgba-white-slight mx-1"
-                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                    href="https://www.facebook.com/Blockofmagic-101626158713080"
                   >
                     <i className="fab fa-facebook-f" />
                   </a>
@@ -77,7 +77,7 @@ const FooterPagePro = () => {
                 <li className="list-inline-item">
                   <a
                     className="btn-floating btn-sm rgba-white-slight mx-1"
-                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                    href="https://twitter.com/BlockOfMagic1"
                   >
                     <i className="fab fa-twitter" />
                   </a>
@@ -85,17 +85,25 @@ const FooterPagePro = () => {
                 <li className="list-inline-item">
                   <a
                     className="btn-floating btn-sm rgba-white-slight mx-1"
-                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                    href="https://github.com/blockofmagic/"
                   >
-                    <i className="fab fa-google-plus" />
+                    <i className="fab fa-github" />
                   </a>
                 </li>
                 <li className="list-inline-item">
                   <a
                     className="btn-floating btn-sm rgba-white-slight mx-1"
-                    href="https://www.youtube.com/watch?v=d1YBv2mWll0&ab_channel=Sordiway"
+                    href="https://www.youtube.com/channel/UCPI-X5XpEMbsIYzUCh7LsAA"
                   >
-                    <i className="fab fa-linkedin-in" />
+                    <i className="fab fa-youtube" />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a
+                    className="btn-floating btn-sm rgba-white-slight mx-1"
+                    href="https://www.instagram.com/blockofmagic/?hl=de"
+                  >
+                    <i className="fab fa-instagram" />
                   </a>
                 </li>
               </ul>
